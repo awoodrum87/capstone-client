@@ -1,6 +1,17 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# capstone client
+# capstone client documentation
+
+## User Stories
+1. As a User I want to be able to perform authentication actions (Sign-up, sign-in, sign-out, change password)
+2. As a User I want to be able to post a quote
+3. As a User I want to be able to get the quotes I have posted
+4. As a User I want to be able to updated the quotes I have posted
+5. As a User I want to be able to delete the quotes I have posted
+
+## Wireframes
+
+https://goo.gl/photos/YaaSqym3XNYCGvEw5
 
 
 ## [License](LICENSE)
