@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Sh*t Terry Says</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -12,14 +12,53 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <h1>CRUD Machine</h1>
+      <!-- all authentication forms below -->
+      <div>
+      <form id="cr-acct-form">
+        <fieldset>
+          <input type="text" name="credentials[email]" value="" placeholder="email">
+          <input type="password" name="credentials[password]" value="" placeholder="password">
+          <input class="btn btn-danger" id="sign-up-btn" type="submit" name="submit" value="Create Account">
+        </fieldset>
+      </form>
+    </div>
+    <div>
+    <form id="sign-in-form">
+      <fieldset>
+        <input type="text" name="credentials[email]" value="" placeholder="email">
+        <input type="password" name="credentials[password]" value="" placeholder="password">
+        <input class="btn btn-danger" id="sign-in-btn" type="submit" name="submit" value="Sign-In">
+      </fieldset>
+    </form>
+  </div>
+  <div>
+    <form id="change-pass-form">
+      <fieldset>
+        <input type="password" name="passwords[old]" value="" placeholder="old password">
+        <input type="password" name="passwords[new]" value="" placeholder="new password">
+        <input class="btn btn-danger" id="change-pass-btn" type="submit" name="submit" value="Change Password">
+      </fieldset>
+    </form>
+  </div>
+      <button class="btn btn-danger" id="logout-btn">Logout</button>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <!-- all quote CRUD actions below -->
+      <div>
+      <form id="create-quote-form">
+        <fieldset>
+          <textarea rows="2" cols="25" name="quote[quote_text]" placeholder="Quote Text"> </textarea>
+          <input type="date" id="quote-date" name="quote[date]" value="" placeholder="">
+          <input type="submit" class="btn btn-danger" id="pub-quote-btn" name="submit" value="Publish Quote">
+        </fieldset>
+      </form>
+      </div>
+
+      <button class="btn btn-danger" id="get-quotes-btn">Read Quotes</button>
+      <!-- <button class="btn btn-danger" id="get-my-quotes-btn">Read My Quotes</button> -->
+      <div class="render-quotes"></div>
+
+
+
     </body>
 </html>

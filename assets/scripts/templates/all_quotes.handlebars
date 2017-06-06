@@ -1,0 +1,56 @@
+{{#each quotes as |quote|}}
+   <ul data-id="{{quote.id}}">
+     <li> Quote ID: {{quote.id}}</li>
+     <li> Date: {{quote.date}}</li>
+     <li> Quote: {{quote.quote_text}}</li>
+     <button type="button" class="btn btn-danger" id="update-quote-btn" data-toggle="modal" data-target="#update{{quote.id}}" > Update Review </button>
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{quote.id}}"> Delete Quote </button>
+   </ul>
+
+
+<!-- update review modal -->
+<div class="upModal modal fade" id="update{{quote.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update This Quote</h5>
+          </div>
+          <div class="modal-body">
+            <form id="update-quote-form" data-id="{{quote.id}}">
+            <fieldset>
+              <input type='text' name='quote[quote_text]'placeholder="Updated Quote Text">
+              <input data-id="{{quote.id}}" type="submit" name="submit" value="Update This Quote">
+          </fieldset>
+          </form>
+          </div>
+          <div class="modal-footer">
+            <div class="updateerror"></div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- update quote modal -->
+    <div class="delModal modal fade" id="delete{{quote.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Are you sure???</h5>
+              </div>
+              <div class="modal-body">
+                <form id='del-quote-form' data-id="{{quote.id}}">
+                <fieldset>
+                  <input data-id="{{quote.id}}" type="submit" name="submit" value="Delete This Quote">
+              </fieldset>
+              </form>
+              </div>
+              <div class="modal-footer">
+                <div class="updateerror"></div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{{/each}}

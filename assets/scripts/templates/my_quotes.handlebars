@@ -1,0 +1,11 @@
+{{#each quotes as |quote|}}
+<div>
+<ul>
+
+  <li> Quote ID: {{quote.id}}</li>
+  <li> Quote Date: {{quote.date}} </li>
+  <li> Review: {{quote.quote_text}}</li>
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#update{{review.id}}">Update Review</button>
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{review.id}}">Delete Review</button>
+</ul>
+</div>

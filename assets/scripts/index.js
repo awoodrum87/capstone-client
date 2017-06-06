@@ -11,4 +11,24 @@ $(() => {
 // const example = require('./example')
 
 // use require without a reference to ensure a file is bundled
-require('./example')
+const authEvents = require('./auth/events.js')
+const quoteEvents = require('./quotes/events.js')
+
+$(() => {
+  authEvents.clickHandlers()
+  quoteEvents.clickHandlers()
+  $(function () {
+    const dtToday = new Date()
+    let month = dtToday.getMonth() + 1
+    let day = dtToday.getDate()
+    const year = dtToday.getFullYear()
+    if (month < 10) {
+      month = '0' + month.toString()
+    }
+    if (day < 10) {
+      day = '0' + day.toString()
+    }
+    const maxDate = year + '-' + month + '-' + day
+    $('#quote-date').attr('max', maxDate)
+  })
+})
