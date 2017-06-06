@@ -1,0 +1,48 @@
+'use strict'
+
+const loginView = () => {
+  $('#cr-acct-form').hide()
+  $('#sign-in-form').hide()
+  $('.render-quotes').show()
+  $('#change-pass-form').show()
+  $('#logout-btn').show()
+  $('#create-quote-form').show()
+  $('#get-quotes-btn').show()
+}
+
+const logoutView = () => {
+  $('#cr-acct-form').show()
+  $('#sign-in-form').show()
+  $('.render-quotes').hide()
+  $('#change-pass-form').hide()
+  $('#logout-btn').hide()
+  $('#create-quote-form').hide()
+  $('#get-quotes-btn').hide()
+}
+
+const changePassView = () => {
+  $('#change-pass-form').hide()
+}
+
+const clearFormFields = () => {
+  $('#cr-acct-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#change-pass-form').trigger('reset')
+  $('#create-quote-form').trigger('reset')
+}
+
+const onDocLoad = () => {
+  $('.alert').hide()
+  $('#change-pass-form').hide()
+  $('#logout-btn').hide()
+  $('#create-quote-form').hide()
+  $('#get-quotes-btn').hide()
+}
+
+module.exports = {
+  loginView,
+  logoutView,
+  changePassView,
+  clearFormFields,
+  onDocLoad
+}
