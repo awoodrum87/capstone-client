@@ -3,7 +3,6 @@
 const loginView = () => {
   $('#cr-acct-form').hide()
   $('#sign-in-form').hide()
-  $('.render-quotes').show()
   $('#change-pass-form').show()
   $('#logout-btn').show()
   $('#create-quote-form').show()
@@ -13,7 +12,7 @@ const loginView = () => {
 const logoutView = () => {
   $('#cr-acct-form').show()
   $('#sign-in-form').show()
-  $('.render-quotes').hide()
+  $('.render-quotes').empty()
   $('#change-pass-form').hide()
   $('#logout-btn').hide()
   $('#create-quote-form').hide()
