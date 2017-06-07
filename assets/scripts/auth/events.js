@@ -6,7 +6,6 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onCreateAccount = function (event) {
-  console.log('create account click is heard')
   const data = getFormFields(this)
   event.preventDefault()
   api.createAccount(data)

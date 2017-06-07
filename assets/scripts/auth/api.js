@@ -4,7 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const createAccount = (data) => {
-  console.log('data is:', data)
+  console.log('API cr Account file data is:', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up/',
     method: 'POST',
@@ -12,6 +12,7 @@ const createAccount = (data) => {
   })
 }
 const login = (data) => {
+  console.log('API login file data is:', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-in/',
     method: 'POST',

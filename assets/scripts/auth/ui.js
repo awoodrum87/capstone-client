@@ -2,8 +2,19 @@
 
 const store = require('../store.js')
 const visible = require('../visible')
+const api = require('./api')
 
 const createAccountSuccess = (data) => {
+  store.user = data.user
+
+  const credentials = {
+    email: $('#sign-up-email').val(),
+    password: $('#sign-up-password').val()
+  }
+
+  api.login({credentials})
+  .then(loginSuccess)
+  .catch(loginFailure)
   visible.clearFormFields()
   $('#cr-acct-success-alert').alert()
   $('#cr-acct-success-alert').fadeTo(1500, 500).slideUp(500, () => {
@@ -12,11 +23,18 @@ const createAccountSuccess = (data) => {
 }
 
 const createAccountFailure = (error) => {
-  console.error(error)
-  $('#cr-acct-fail-alert').alert()
-  $('#cr-acct-fail-alert').fadeTo(1500, 500).slideUp(500, () => {
-    $('#cr-acct-fail-alert').slideUp(500)
-  })
+  const errTextExists = error.responseJSON
+  if (errTextExists.password) {
+    $('#cr-acct-fail-alert-blank').alert()
+    $('#cr-acct-fail-alert-blank').fadeTo(1500, 500).slideUp(500, () => {
+      $('#cr-acct-fail-alert-blank').slideUp(500)
+    })
+  } else {
+    $('#cr-acct-fail-alert-exists').alert()
+    $('#cr-acct-fail-alert-exists').fadeTo(1500, 500).slideUp(500, () => {
+      $('#cr-acct-fail-alert-exists').slideUp(500)
+    })
+  }
 }
 
 const loginSuccess = (data) => {
