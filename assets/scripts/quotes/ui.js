@@ -2,20 +2,27 @@
 const showQuotes = require('../templates/all_quotes.handlebars')
 
 const store = require('../store.js')
-// const visible = require('../visible.js')
+const visible = require('../visible.js')
 
 const createQuoteSuccess = (data) => {
   store.quote = data.quote
-  console.log('data.id is', data.id)
-  console.log('create quote success')
+  visible.clearFormFields()
+  $('#cr-quote-success-alert').alert()
+  $('#cr-quote-success-alert').fadeTo(1500, 500).slideUp(500, () => {
+    $('#cr-quote-success-alert').slideUp(500)
+  })
 }
 
 const createQuoteFailure = (error) => {
   console.error(error)
-  console.log('create quote fail')
+  $('#cr-quote-fails-alert').alert()
+  $('#cr-quote-fails-alert').fadeTo(1500, 500).slideUp(500, () => {
+    $('#cr-quote-fails-alert').slideUp(500)
+  })
 }
 
 const getQuotesSuccess = (data) => {
+  visible.clearFormFields()
   const showQuotesHTML = showQuotes({ quotes: data })
   $('.render-quotes').html(showQuotesHTML)
 }
@@ -26,6 +33,7 @@ const getQuotesFailure = (data) => {
 }
 
 const updateQuoteSuccess = (data) => {
+  visible.clearFormFields()
   console.log('update quote success')
 }
 
@@ -35,6 +43,7 @@ const updateQuoteFailure = (error) => {
 }
 
 const deleteQuoteSuccess = (data) => {
+  visible.clearFormFields()
   console.log('delete quote success')
   $('.delModal').modal('toggle')
 }

@@ -13,10 +13,14 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 const authEvents = require('./auth/events.js')
 const quoteEvents = require('./quotes/events.js')
+const visible = require('./visible')
 
 $(() => {
   authEvents.clickHandlers()
   quoteEvents.clickHandlers()
+  visible.onDocLoad()
+  visible.clickHandlers()
+  // logic to block future dates from being selected in HTML datepicker tool
   $(function () {
     const dtToday = new Date()
     let month = dtToday.getMonth() + 1
