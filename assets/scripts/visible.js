@@ -37,6 +37,18 @@ const onDocLoad = () => {
   $('#logout-btn').hide()
   $('#create-quote-form').hide()
   $('#get-quotes-btn').hide()
+  $('.trigWarning').modal('show')
+  $('#safe-space-gif').hide()
+}
+
+const onSafeSpace = () => {
+  $('#safe-space-gif').show()
+  $('.trigWarning').modal('hide')
+  $('#cr-acct-form').hide()
+  $('#sign-in-form').hide()
+}
+const clickHandlers = () => {
+  $('#safe-space-btn').on('click', onSafeSpace)
 }
 
 module.exports = {
@@ -44,5 +56,7 @@ module.exports = {
   logoutView,
   changePassView,
   clearFormFields,
-  onDocLoad
+  onDocLoad,
+  onSafeSpace,
+  clickHandlers
 }

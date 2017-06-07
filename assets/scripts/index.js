@@ -19,6 +19,7 @@ $(() => {
   authEvents.clickHandlers()
   quoteEvents.clickHandlers()
   visible.onDocLoad()
+  visible.clickHandlers()
   // logic to block future dates from being selected in HTML datepicker tool
   $(function () {
     const dtToday = new Date()
