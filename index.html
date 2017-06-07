@@ -12,26 +12,35 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>CRUD Machine</h1>
+      <h1>Sh*t Terry Says</h1>
       <!-- all authentication forms below -->
-      <div>
-      <form id="cr-acct-form">
-        <fieldset>
-          <input type="text" name="credentials[email]" value="" placeholder="email">
-          <input type="password" name="credentials[password]" value="" placeholder="password">
-          <input class="btn btn-danger" id="sign-up-btn" type="submit" name="submit" value="Create Account">
-        </fieldset>
-      </form>
-    </div>
-    <div>
-    <form id="sign-in-form">
-      <fieldset>
-        <input type="text" name="credentials[email]" value="" placeholder="email">
-        <input type="password" name="credentials[password]" value="" placeholder="password">
-        <input class="btn btn-danger" id="sign-in-btn" type="submit" name="submit" value="Sign-In">
-      </fieldset>
+
+    <form id="cr-acct-form">
+      <div class="form-group">
+        <label>Email address:</label>
+        <input type="email" class="form-control" id="sign-up-email" name="credentials[email]" placeholder="email">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" name="credentials[password]" class="form-control" id="sign-up-password" placeholder="password">
+      </div>
+      <input class="btn btn-danger" id="sign-up-btn" type="submit" name="submit" value="Create Account">
     </form>
-  </div>
+
+  <form id="sign-in-form">
+    <div class="form-group">
+      <label>Email address:</label>
+      <input type="email" class="form-control" name="credentials[email]" placeholder="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" name="credentials[password]" class="form-control" placeholder="password">
+    </div>
+    <input class="btn btn-danger" id="sign-in-btn" type="submit" name="submit" value="Sign-In">
+  </form>
+
+
+
   <div>
     <form id="change-pass-form">
       <fieldset>
@@ -54,6 +63,8 @@
       </form>
       </div>
 
+
+
       <button class="btn btn-danger" id="get-quotes-btn">Read Quotes</button>
       <!-- <button class="btn btn-danger" id="get-my-quotes-btn">Read My Quotes</button> -->
       <div class="render-quotes"></div>
@@ -61,8 +72,12 @@
       <!-- error feedback to user -->
 
       <!-- create account fail -->
-      <div class="alert alert-danger alert-fixed-top update-fail" id="cr-acct-fail-alert" role="alert">
-        <strong>Create Account Failed!</strong> No fields can be blank.
+      <div class="alert alert-danger alert-fixed-top update-fail" id="cr-acct-fail-alert-blank" role="alert">
+        <strong>Create Account Failed!</strong> Cannot have blank fields
+      </div>
+
+      <div class="alert alert-danger alert-fixed-top update-fail" id="cr-acct-fail-alert-exists" role="alert">
+        <strong>Create Account Failed!</strong> These credentials are already taken
       </div>
       <!-- login fail -->
       <div class="alert alert-danger alert-fixed-top update-fail" id="login-fail-alert" role="alert">
@@ -75,14 +90,14 @@
 
       <!-- create quote fail -->
       <div class="alert alert-fail alert-fixed-top update-fail" id="cr-quote-fail-alert" role="alert">
-        <strong>Create Account Fail!</strong> All fields are required.
+        <strong>Create Quote Fail!</strong>
       </div>
 
       <!-- success feedback to user -->
 
       <!-- create account success -->
       <div class="alert alert-success alert-fixed-top update-fail" id="cr-acct-success-alert" role="alert">
-        <strong>Create Account Success!</strong> Login to proceed.
+        <strong>Create Account Success!</strong>
       </div>
 
       <!-- create account success -->
@@ -95,6 +110,24 @@
         <strong>Congratulations!</strong> You've saved a quote!
       </div>
 
+      <!-- NSFW Warning -->
+      <div class="trigWarning modal fade" id="trigger-warning" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Trigger Warning</h5>
+                </div>
+                <div class="modal-body">
+                  <p> This may upset you. Please indicate if you wish to proceed to your continue or need your Safe Space.</p>
+                  <button class="btn btn-danger" id="safe-space-btn">Safe Space</button>
+                  <button class="btn btn-danger" id="continue-btn" data-dismiss="modal">Carry On</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- gif for safe space -->
+          <img src="https://media.giphy.com/media/26tPuoGTx99LAibOE/giphy.gif" alt="Customer Service" id='safe-space-gif' style="width:700px;height:600px;">
 
     </body>
 </html>
