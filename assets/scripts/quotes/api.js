@@ -30,6 +30,16 @@ const updateQuote = (id, data) => {
 
 const readQuotes = () => {
   return $.ajax({
+    url: config.apiOrigin + '/my-quotes/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const readAllQuotes = () => {
+  return $.ajax({
     url: config.apiOrigin + '/quotes/',
     method: 'GET',
     headers: {
@@ -52,5 +62,6 @@ module.exports = {
   createQuote,
   updateQuote,
   readQuotes,
-  deleteQuote
+  deleteQuote,
+  readAllQuotes
 }

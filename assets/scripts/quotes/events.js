@@ -42,11 +42,20 @@ const onDeleteQuote = function (event) {
     // .done(onGetQuotes)
 }
 
+const onGetAllQuotes = function (event) {
+  console.log('get all quotes click is heard')
+  event.preventDefault()
+  api.readAllQuotes()
+    .then(ui.getAllQuotesSuccess)
+    .catch(ui.getQuotesFailure)
+}
+
 const clickHandlers = () => {
   $('#create-quote-form').on('submit', onCreateQuote)
   $('#get-quotes-btn').on('click', onGetQuotes)
   $('.render-quotes').on('submit', '#update-quote-form', onUpdateQuote)
   $('.render-quotes').on('submit', '#del-quote-form', onDeleteQuote)
+  $('#get-all-quotes-btn').on('click', onGetAllQuotes)
 }
 
 module.exports = {
