@@ -4,11 +4,11 @@
      <li> Date: {{quote.date}}</li>
      <li> Quote: {{quote.quote_text}}</li>
      <button type="button" class="btn btn-danger" id="update-quote-btn" data-toggle="modal" data-target="#update{{quote.id}}" > Update Review </button>
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{quote.id}}"> Delete Quote </button>
+     <button type="button" class="del-btn btn btn-danger" id="{{quote.id}}" data-id="{{quote.id}}"> Delete Quote </button>
    </ul>
 
 
-<!-- update review modal -->
+<!-- update quote modal -->
 <div class="upModal modal fade" id="update{{quote.id}}" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -31,8 +31,8 @@
       </div>
     </div>
 
-    <!-- update quote modal -->
-    <div class="delModal modal fade" id="delete{{quote.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- delete quote modal -->
+    <!-- <div class="delModal modal fade" id="delete{{quote.id}}" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -51,6 +51,6 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
 {{/each}}

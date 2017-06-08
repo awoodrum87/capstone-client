@@ -5,6 +5,7 @@
 - [Link to API Documentation](https://github.com/awoodrum87/capstone-api)
 - [Link to Deployed Application](https://awoodrum87.github.io/capstone-client/index.html)
 
+
 ## User Stories
 1. As a User I want to be able to perform authentication actions (Sign-up, sign-in, sign-out, change password)
 2. As a User I want to be able to post a quote
