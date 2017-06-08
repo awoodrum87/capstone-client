@@ -1,5 +1,6 @@
 'use strict'
 const showQuotes = require('../templates/all_quotes.handlebars')
+const showAllQuotes = require('../templates/my_quotes.handlebars')
 
 const store = require('../store.js')
 const visible = require('../visible.js')
@@ -23,7 +24,7 @@ const createQuoteFailure = (error) => {
 
 const getQuotesSuccess = (data) => {
   visible.clearFormFields()
-  const showQuotesHTML = showQuotes({ quotes: data })
+  const showQuotesHTML = showQuotes({ quotes: data.quotes })
   $('.render-quotes').html(showQuotesHTML)
 }
 
@@ -53,6 +54,13 @@ const deleteQuoteFailure = (error) => {
   console.log('delete quote fail')
 }
 
+const getAllQuotesSuccess = (data) => {
+  console.log('get all quotes passes api into ui')
+  console.log(data)
+  const showQuotesHTML = showAllQuotes({ quotes: data.quotes })
+  $('.render-quotes').html(showQuotesHTML)
+}
+
 module.exports = {
   createQuoteSuccess,
   createQuoteFailure,
@@ -61,5 +69,6 @@ module.exports = {
   updateQuoteSuccess,
   updateQuoteFailure,
   deleteQuoteSuccess,
-  deleteQuoteFailure
+  deleteQuoteFailure,
+  getAllQuotesSuccess
 }

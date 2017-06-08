@@ -7,6 +7,7 @@ const loginView = () => {
   $('#logout-btn').show()
   $('#create-quote-form').show()
   $('#get-quotes-btn').show()
+  $('#get-all-quotes-btn').show()
 }
 
 const logoutView = () => {
@@ -17,6 +18,7 @@ const logoutView = () => {
   $('#logout-btn').hide()
   $('#create-quote-form').hide()
   $('#get-quotes-btn').hide()
+  $('#get-all-quotes-btn').hide()
 }
 
 const changePassView = () => {
@@ -38,6 +40,7 @@ const onDocLoad = () => {
   $('#get-quotes-btn').hide()
   $('.trigWarning').modal('show')
   $('#safe-space-gif').hide()
+  $('#get-all-quotes-btn').hide()
 }
 
 const onSafeSpace = () => {

@@ -38,6 +38,7 @@ const createAccountFailure = (error) => {
 }
 
 const loginSuccess = (data) => {
+  console.log('login data is:', data)
   store.user = data.user
   visible.loginView()
   visible.clearFormFields()
