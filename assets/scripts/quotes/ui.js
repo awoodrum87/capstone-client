@@ -50,8 +50,8 @@ const deleteQuoteSuccess = (data) => {
 }
 
 const deleteQuoteFailure = (error) => {
-  console.error(error)
-  console.log('delete quote fail')
+  console.error('error is', error)
+  console.log('delete quote fail ui')
 }
 
 const getAllQuotesSuccess = (data) => {

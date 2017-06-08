@@ -49,6 +49,7 @@ const readAllQuotes = () => {
 }
 
 const deleteQuote = (id) => {
+  console.log('delete quote API')
   return $.ajax({
     url: config.apiOrigin + '/quotes/' + id,
     method: 'DELETE',

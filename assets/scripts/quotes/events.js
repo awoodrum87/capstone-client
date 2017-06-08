@@ -36,10 +36,11 @@ const onDeleteQuote = function (event) {
   console.log('delete click heard')
   event.preventDefault()
   const id = $(this).attr('data-id')
+  console.log('id is', id)
   api.deleteQuote(id)
     .then(ui.deleteQuoteSuccess)
     .catch(ui.deleteQuoteFailure)
-    // .done(onGetQuotes)
+    .done(onGetQuotes)
 }
 
 const onGetAllQuotes = function (event) {
@@ -54,7 +55,8 @@ const clickHandlers = () => {
   $('#create-quote-form').on('submit', onCreateQuote)
   $('#get-quotes-btn').on('click', onGetQuotes)
   $('.render-quotes').on('submit', '#update-quote-form', onUpdateQuote)
-  $('.render-quotes').on('submit', '#del-quote-form', onDeleteQuote)
+  $('.render-quotes').on('click', '.del-btn', onDeleteQuote)
+  // $('#delete-quote-btn').on('click', onDeleteQuote)
   $('#get-all-quotes-btn').on('click', onGetAllQuotes)
 }
 
