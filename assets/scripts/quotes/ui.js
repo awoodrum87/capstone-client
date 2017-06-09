@@ -7,11 +7,11 @@ const visible = require('../visible.js')
 
 const createQuoteSuccess = (data) => {
   store.quote = data.quote
-  visible.clearFormFields()
   $('#cr-quote-success-alert').alert()
   $('#cr-quote-success-alert').fadeTo(1500, 500).slideUp(500, () => {
     $('#cr-quote-success-alert').slideUp(500)
   })
+  visible.clearFormFields()
 }
 
 const createQuoteFailure = (error) => {
