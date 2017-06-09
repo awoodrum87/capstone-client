@@ -15,7 +15,6 @@ const onCreateAccount = function (event) {
 
 const onLogin = function (event) {
   event.preventDefault()
-  console.log('login click is heard')
   const data = getFormFields(this)
   api.login(data)
     .then(ui.loginSuccess)
