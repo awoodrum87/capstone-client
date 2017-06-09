@@ -16,9 +16,9 @@ const createQuoteSuccess = (data) => {
 
 const createQuoteFailure = (error) => {
   console.error(error)
-  $('#cr-quote-fails-alert').alert()
-  $('#cr-quote-fails-alert').fadeTo(1500, 500).slideUp(500, () => {
-    $('#cr-quote-fails-alert').slideUp(500)
+  $('#cr-quote-fail-alert').alert()
+  $('#cr-quote-fail-alert').fadeTo(1500, 500).slideUp(500, () => {
+    $('#cr-quote-fail-alert').slideUp(500)
   })
 }
 
