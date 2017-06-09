@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Sh*t Terry Says</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <h1>Sh*t Terry Says</h1>
+      <!-- all authentication forms below -->
+
+    <form id="cr-acct-form">
+      <div class="form-group">
+        <label>Email address:</label>
+        <input type="email" class="form-control" id="sign-up-email" name="credentials[email]" placeholder="email">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" name="credentials[password]" class="form-control" id="sign-up-password" placeholder="password">
+      </div>
+      <input class="btn btn-danger" id="sign-up-btn" type="submit" name="submit" value="Create Account">
+    </form>
+
+  <form id="sign-in-form">
+    <div class="form-group">
+      <label>Email address:</label>
+      <input type="email" class="form-control" name="credentials[email]" placeholder="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" name="credentials[password]" class="form-control" placeholder="password">
+    </div>
+    <input class="btn btn-danger" id="sign-in-btn" type="submit" name="submit" value="Sign-In">
+  </form>
+
+
+
+  <div>
+    <form id="change-pass-form">
+      <fieldset>
+        <input type="password" name="passwords[old]" value="" placeholder="old password">
+        <input type="password" name="passwords[new]" value="" placeholder="new password">
+        <input class="btn btn-danger" id="change-pass-btn" type="submit" name="submit" value="Change Password">
+      </fieldset>
+    </form>
+  </div>
+      <button class="btn btn-danger" id="logout-btn">Logout</button>
+
+      <!-- all quote CRUD actions below -->
+      <div>
+      <form id="create-quote-form">
+        <fieldset>
+          <textarea rows="2" cols="25" name="quote[quote_text]" placeholder="Quote Text"> </textarea>
+          <input type="date" id="quote-date" name="quote[date]" value="" placeholder="">
+          <input type="submit" class="btn btn-danger" id="pub-quote-btn" name="submit" value="Publish Quote">
+        </fieldset>
+      </form>
+      </div>
+
+
+
+      <button class="btn btn-danger" id="get-quotes-btn">Read My Quotes</button>
+      <button class="btn btn-danger" id="get-all-quotes-btn">Read All Quotes</button>
+      <!-- <button class="btn btn-danger" id="get-my-quotes-btn">Read My Quotes</button> -->
+      <div class="render-quotes"></div>
+
+      <!-- error feedback to user -->
+
+      <!-- create account fail -->
+      <div class="alert alert-danger alert-fixed-top update-fail" id="cr-acct-fail-alert-blank" role="alert">
+        <strong>Create Account Failed!</strong> Cannot have blank fields
+      </div>
+
+      <div class="alert alert-danger alert-fixed-top update-fail" id="cr-acct-fail-alert-exists" role="alert">
+        <strong>Create Account Failed!</strong> These credentials are already taken
+      </div>
+      <!-- login fail -->
+      <div class="alert alert-danger alert-fixed-top update-fail" id="login-fail-alert" role="alert">
+        <strong>Login Failed!</strong> Make sure you have created an account and that you've used the correct password.
+      </div>
+      <!-- change password fail -->
+      <div class="alert alert-danger alert-fixed-top update-fail" id="change-pass-fail-alert" role="alert">
+        <strong>Change Password Failed!</strong> Enter your old password and a new one.
+      </div>
+
+      <!-- create quote fail -->
+      <div class="alert alert-danger alert-fixed-top update-fail" id="cr-quote-fail-alert" role="alert">
+        <strong>Create Quote Fail!</strong> No blank fields allowed.
+      </div>
+
+      <!-- success feedback to user -->
+
+      <!-- create account success -->
+      <div class="alert alert-success alert-fixed-top update-fail" id="cr-acct-success-alert" role="alert">
+        <strong>Create Account Success!</strong>
+      </div>
+
+      <!-- create account success -->
+      <div class="alert alert-success alert-fixed-top update-fail" id="ch-pass-success-alert" role="alert">
+        <strong>Change Password Success!</strong>
+      </div>
+
+      <!-- create quote success -->
+      <div class="alert alert-success alert-fixed-top update-fail" id="cr-quote-success-alert" role="alert">
+        <strong>Congratulations!</strong> You've saved a quote!
+      </div>
+
+      <!-- NSFW Warning -->
+      <div class="trigWarning modal fade" id="trigger-warning" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Trigger Warning</h5>
+                </div>
+                <div class="modal-body">
+                  <p> This may upset you. Please indicate if you wish to proceed or need your Safe Space.</p>
+                  <button class="btn btn-danger" id="safe-space-btn">Safe Space</button>
+                  <button class="btn btn-danger" id="continue-btn" data-dismiss="modal">Carry On</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- gif for safe space -->
+          <img src="https://media.giphy.com/media/26tPuoGTx99LAibOE/giphy.gif" alt="Customer Service" id='safe-space-gif' style="width:700px;height:600px;">
+
+    </body>
+</html>
