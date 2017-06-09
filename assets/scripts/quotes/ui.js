@@ -29,34 +29,29 @@ const getQuotesSuccess = (data) => {
 }
 
 const getQuotesFailure = (data) => {
-  console.log('get quote fail')
-  console.log(data)
+
 }
 
 const updateQuoteSuccess = (data) => {
   visible.clearFormFields()
-  console.log('update quote success')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
 }
 
 const updateQuoteFailure = (error) => {
-  console.log('update quote fail')
   console.error(error)
 }
 
 const deleteQuoteSuccess = (data) => {
   visible.clearFormFields()
-  console.log('delete quote success')
   $('.delModal').modal('toggle')
 }
 
 const deleteQuoteFailure = (error) => {
-  console.error('error is', error)
-  console.log('delete quote fail ui')
+  console.error(error)
 }
 
 const getAllQuotesSuccess = (data) => {
-  console.log('get all quotes passes api into ui')
-  console.log(data)
   const showQuotesHTML = showAllQuotes({ quotes: data.quotes })
   $('.render-quotes').html(showQuotesHTML)
 }

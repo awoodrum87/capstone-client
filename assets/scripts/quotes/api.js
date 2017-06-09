@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const createQuote = (data) => {
-  console.log('data is:', data)
   return $.ajax({
     url: config.apiOrigin + '/quotes/',
     method: 'POST',
@@ -16,8 +15,6 @@ const createQuote = (data) => {
 }
 
 const updateQuote = (id, data) => {
-  console.log('data is:', data)
-  console.log('id is:', id)
   return $.ajax({
     url: config.apiOrigin + '/quotes/' + id,
     method: 'PATCH',
@@ -49,7 +46,6 @@ const readAllQuotes = () => {
 }
 
 const deleteQuote = (id) => {
-  console.log('delete quote API')
   return $.ajax({
     url: config.apiOrigin + '/quotes/' + id,
     method: 'DELETE',
